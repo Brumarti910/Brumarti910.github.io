@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
 
+	<head>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/createapp.min.css" rel="stylesheet">
+    <!-- Main CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+	</head>
+	<body>
+		<section class="content-section">
+		<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+			
+				    <h3>MainActivity</h3>
+				    <p class="s">LOCATION: java/MainActivity.java</p>
+
+					<div>
+					  <p class="p">
+					  
+
+import android.app.Activity;</br>
+import android.app.AlertDialog;</br>
+import android.content.Context;</br>
+import android.content.DialogInterface;</br>
+import android.os.Bundle;</br>
+import android.view.LayoutInflater;</br>
+import android.view.View;</br>
+import android.view.View.OnClickListener;</br>
+import android.widget.Button;</br>
+import android.widget.EditText;</br>
+</br>
+public class MainActivity extends Activity {</br>
+</br>
+	final Context context = this;</br>
+	private Button button;</br>
+	private EditText result;</br></br>
+
+	public void onCreate(Bundle savedInstanceState) {</br></br>
+
+		super.onCreate(savedInstanceState);</br>
+		setContentView(R.layout.main);</br></br>
+
+		<span class="c">// components from main.xml</br></span>
+		button = (Button) findViewById(R.id.buttonPrompt);</br>
+		result = (EditText) findViewById(R.id.editTextResult);</br></br>
+
+		<span class="c">// add button listener</br></span>
+		button.setOnClickListener(new OnClickListener() {</br></br>
+</br>
+			@Override</br>
+			public void onClick(View arg0) {</br></br>
+
+				<span class="c">// get prompts.xml view</br></span>
+				LayoutInflater li = LayoutInflater.from(context);</br>
+				View promptsView = li.inflate(R.layout.prompts, null);</br></br>
+
+				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);</br></br>
+
+				<span class="c">// set prompts.xml to alertdialog builder</br></span>
+				alertDialogBuilder.setView(promptsView);</br></br>
+
+				final EditText userInput = (EditText) promptsView.findViewById(R.id. editTextDialogUserInput);</br></br>
+
+				<span class="c">// set dialog message</br></span>
+				alertDialogBuilder</br>
+					.setCancelable(false)</br>
+					.setPositiveButton("OK",</br>
+					  new DialogInterface.OnClickListener() {</br>
+					    public void onClick(DialogInterface dialog,int id) {</br></br>
+						
+						<span class="c">// get user input and set it to result</br>
+						// edit text</br></span>
+						result.setText(userInput.getText());</br>
+					    }</br>
+						}</br>
+						).setNegativeButton("Cancel",</br>
+					  new DialogInterface.OnClickListener() {</br>
+					    public void onClick(DialogInterface dialog,int id) {</br>
+						dialog.cancel();</br>
+					    }</br>
+					  });</br></br>
+
+				<span class="c">// create alert dialog</br></span>
+				AlertDialog alertDialog = alertDialogBuilder.create();</br></br>
+
+				<span class="c">// show it</br></span>
+				alertDialog.show();</br>
+
+			}</br>
+		});</br>
+	}</br>
+}</br>
+
+
+
+
+
+
+
+
+</p>
+			</div>  
+		</div>  
+	</div>  
+ </div>
+				    
+
+						
+		</section>
+
+	</body>
+</html>
